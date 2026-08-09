@@ -1,79 +1,81 @@
-# SentinelAI — Smart Video Management System
+# 🛡️ SentinelAI VMS
 
-A competition-ready prototype for the A-1 Launchpad 2026 Smart Video Management System case study.
+### AI-Powered Video Management System for Intelligent Surveillance
 
-## Features
-- Live webcam/video stream
-- Motion/intrusion detection
-- Configurable rectangular detection zone
-- Event timestamps
-- Event list
-- Timeline markers
-- Camera status
-- Active alerts
-- Storage usage
-- SQLite event database
-- Optional YOLO integration point
+<p align="center">
 
-## Quick Start
+  <img src="https://img.shields.io/badge/Python-3.13+-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/FastAPI-0.116+-009688?style=for-the-badge&logo=fastapi&logoColor=white" />
+  <img src="https://img.shields.io/badge/OpenCV-Computer%20Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" />
+  <img src="https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite&logoColor=white" />
 
-### 1. Create environment
-```bash
-python -m venv venv
-```
+</p>
 
-Windows:
-```bash
-venv\Scripts\activate
-```
+<p align="center">
 
-macOS/Linux:
-```bash
-source venv/bin/activate
-```
+  <img src="https://img.shields.io/badge/Status-Prototype-success?style=flat-square" />
+  <img src="https://img.shields.io/badge/Platform-Windows-lightgrey?style=flat-square" />
+  <img src="https://img.shields.io/badge/Interface-Web%20Dashboard-blue?style=flat-square" />
+  <img src="https://img.shields.io/badge/License-Educational-orange?style=flat-square" />
 
-### 2. Install
-```bash
-pip install -r requirements.txt
-```
+</p>
 
-### 3. Run
-```bash
-uvicorn app.main:app --reload
-```
+---
 
-Open:
-http://127.0.0.1:8000
+## 🚨 What is SentinelAI VMS?
 
-Allow browser camera access if prompted.
+**SentinelAI VMS** is a computer-vision-powered **Video Management System (VMS)** designed to provide centralized surveillance monitoring through a modern web dashboard.
 
-## Demo
-1. Click START CAMERA.
-2. Draw a restricted zone on the video.
-3. Walk into the zone.
-4. SentinelAI detects motion inside the zone.
-5. An intrusion event appears in the event list and timeline.
-6. Use CLEAR ALERTS to reset the demo.
+The system connects to a live camera feed, monitors a configurable restricted zone, detects suspicious motion, generates intrusion events, and presents security information through a centralized dashboard.
 
-## Optional YOLO
-The first urgent MVP uses OpenCV motion detection so the project runs without downloading a large AI model.
-For the final version, add `ultralytics` and a YOLO model in `models/`; the detection service can then be upgraded to object-aware detection.
+Instead of simply displaying a camera feed, SentinelAI VMS focuses on turning surveillance footage into **actionable security events**.
 
-## Project Structure
+> **Monitor → Detect → Alert → Record Event → Investigate**
+
+---
+
+# 🎯 Problem Statement
+
+Traditional surveillance systems often require continuous human monitoring of camera feeds.
+
+This creates several challenges:
+
+- 👁️ Continuous manual monitoring is difficult.
+- 🚨 Security events may be missed.
+- 📊 Important events are difficult to organize.
+- 🔍 Investigating incidents becomes time-consuming.
+- 🖥️ Multiple security indicators are often scattered across systems.
+
+SentinelAI VMS addresses these challenges by providing a **centralized surveillance dashboard with automated computer-vision-based event detection and alerting.**
+
+---
+
+# 💡 Our Solution
+
+SentinelAI VMS provides a centralized interface where a security operator can:
+
 ```text
-SentinelAI_VMS/
-├── app/
-│   ├── main.py
-│   ├── database.py
-│   ├── detector.py
-│   └── static/
-│       ├── index.html
-│       ├── style.css
-│       └── app.js
-├── data/
-├── models/
-├── recordings/
-├── uploads/
-├── requirements.txt
-└── README.md
-```
+        📷 LIVE CAMERA
+              │
+              ▼
+      🔎 COMPUTER VISION
+              │
+              ▼
+       🚧 DETECTION ZONE
+              │
+              ▼
+       MOTION DETECTION
+              │
+        ┌─────┴─────┐
+        │           │
+       SAFE      INTRUSION
+        │           │
+        │           ▼
+        │       🚨 ALERT
+        │           │
+        └─────┬─────┘
+              ▼
+        EVENT LOGGING
+              │
+              ▼
+        VMS DASHBOARD
