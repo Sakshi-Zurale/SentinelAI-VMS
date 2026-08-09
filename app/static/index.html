@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>SentinelAI VMS</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div><b>SentinelAI</b><span>Video Management</span></div>
+    </div>
+    <nav>
+      <button class="nav active">◉ Dashboard</button>
+      <button class="nav">▣ Cameras</button>
+      <button class="nav">◷ Playback</button>
+      <button class="nav">⚠ Events</button>
+      <button class="nav">⚙ Settings</button>
+    </nav>
+    <div class="side-bottom">
+      <div class="system-dot"></div> System operational
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div>
+        <div class="eyebrow">AI-POWERED SURVEILLANCE</div>
+        <h1>Security Operations Dashboard</h1>
+      </div>
+     <div class="header-right">
+
+    <span id="statusPill" class="pill offline">
+        ● OFFLINE
+    </span>
+
+    <button
+        id="cameraButton"
+        class="primary"
+        onclick="toggleCamera()"
+    >
+        START CAMERA
+    </button>
+
+</div>
+    </header>
+
+    <section class="stats">
+      <div class="stat"><span>CAMERAS</span><strong id="cameraStatus">0 / 1</strong><small>Online</small></div>
+      <div class="stat alert-stat"><span>ACTIVE ALERTS</span><strong id="alertCount">0</strong><small>Requires attention</small></div>
+      <div class="stat"><span>AI DETECTIONS</span><strong id="eventCount">0</strong><small>Recorded events</small></div>
+      <div class="stat"><span>STORAGE</span><strong>24.6 GB</strong><small>of 100 GB</small></div>
+    </section>
+
+    <section class="grid">
+      <div class="panel video-panel">
+        <div class="panel-head">
+          <div><b>CAMERA 01</b><span class="live">● LIVE</span></div>
+          <span>Front Gate</span>
+        </div>
+        <div class="video-wrap">
+          <img id="video" src="" alt="Camera feed">
+          <div id="videoOverlay" class="video-overlay">
+            <div class="play-icon">▶</div>
+            <b>Camera offline</b>
+            <span>Click START CAMERA</span>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="time-labels"><span>10:00</span><span>10:15</span><span>10:30</span><span>10:45</span><span>11:00</span></div>
+          <div class="track">
+            <div class="event-mark m1" title="AI Detection"></div>
+            <div class="event-mark m2" title="Intrusion"></div>
+            <div class="event-mark m3" title="Motion"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel zone-panel">
+        <div class="panel-head"><b>DETECTION ZONE</b><span id="zoneText">Configured</span></div>
+        <div class="zone-info">
+          <div class="zone-icon">⌖</div>
+          <div><b>Restricted Area</b><p>Motion inside this zone creates an intrusion event.</p></div>
+        </div>
+        <div class="zone-controls">
+          <label>X1 <input id="x1" type="number" value="120"></label>
+          <label>Y1 <input id="y1" type="number" value="80"></label>
+          <label>X2 <input id="x2" type="number" value="520"></label>
+          <label>Y2 <input id="y2" type="number" value="360"></label>
+        </div>
+        <button class="secondary" onclick="saveZone()">SAVE DETECTION ZONE</button>
+        <div id="zoneMsg" class="muted"></div>
+      </div>
+    </section>
+
+    <section class="bottom-grid">
+      <div class="panel">
+        <div class="panel-head"><b>RECENT AI DETECTIONS</b><button class="text-btn" onclick="refresh()">Refresh</button></div>
+        <div id="events" class="events"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><b>ACTIVE ALERTS</b><button class="danger-btn" onclick="clearAlerts()">Clear</button></div>
+        <div id="alerts" class="alerts">
+          <div class="empty">No active alerts</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <span>SentinelAI VMS Prototype</span>
+      <span>AI-assisted event detection • Zone filtering • Timeline navigation</span>
+    </footer>
+  </main>
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>
